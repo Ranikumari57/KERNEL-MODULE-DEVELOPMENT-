@@ -1,0 +1,39 @@
+3. Compilation & Run Steps
+
+Step 1: Compile
+Bash
+make
+
+Step 2: Load Module
+Bash
+sudo insmod mydriver.ko
+Check major number:
+Bash
+dmesg
+
+Step 3: Create Device File
+Bash
+sudo mknod /dev/mydevice c <major_number> 0
+Example:
+Bash
+sudo mknod /dev/mydevice c 240 0
+
+Step 4: Write to Device
+Bash
+echo "Hello Kernel" > /dev/mydevice
+
+Step 5: Read from Device
+Bash
+cat /dev/mydevice
+
+Step 6: Remove Module
+Bash
+sudo rmmod mydriver
+
+📊 Expected Output
+
+Plain text
+Device registered with Major Number: 240
+Data received from user: Hello Kernel
+Data sent to user
+Device unregistered
